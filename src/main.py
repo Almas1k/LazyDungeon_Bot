@@ -5,17 +5,16 @@ from loguru import logger
 
 from src.di.container import di
 
+
 async def main():
     logger.remove()
     logger.add(sys.stdout)
     try:
-        await asyncio.gather(
-            di.admin_bot().run(),
-            di.client_bot().run(),
-            di.employee_bot().run(),
-        )
+        await di.player_bot().run()
+
     finally:
         await di.session_manager().disconnect()
+        logger.info("end")
 
 
 if __name__ == '__main__':

@@ -3,7 +3,6 @@ from sqlalchemy.orm import declarative_base, Mapped, mapped_column
 
 Base = declarative_base()
 
-
 class UserStateOrm(Base):
     __tablename__ = "user_state"
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
